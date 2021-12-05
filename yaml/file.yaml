@@ -1,0 +1,11 @@
+shopping:
+  - eggs: 1
+  - milk: 3
+  - fruit: apple
+
+purchased:
+  fruit:
+    apple: 1
+    banana: 2
+  neet
+

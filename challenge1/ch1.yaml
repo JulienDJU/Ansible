@@ -1,0 +1,21 @@
+all:
+  hosts:
+    mail.mycorp.local:
+    stmp.mycorp.local:
+    auth.mycorp.local:
+  children:
+    dc:
+      children:
+        dc01.mycorp.local:
+        dc02.mycorp.local:
+    itlappsrv:
+      children:
+        ldnappsrv:
+          hosts:
+            app01.Idn.mycorp.local:
+            app02.Ind.mycorp.local:
+        txappsrv:
+          hosts:
+            app03.tx.mycorp.local:
+            app04.tx.mycorp.local:
+

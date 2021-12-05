@@ -1,0 +1,16 @@
+- hosts: web
+  remote_user: root
+  become: yes
+  tasks:
+  - name: Install Apache
+    apt:
+      name: apache2
+      state: present
+  - name: Restart Apache
+    service:
+      name: httpd
+      state: restarted
+  - name: Remove Apache
+    apt:
+      name: apache2
+      state: absent

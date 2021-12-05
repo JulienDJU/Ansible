@@ -1,0 +1,9 @@
+- hosts: web
+  remote_user: root
+  become: yes
+  tasks:
+    - name: Print Working Directory
+      shell:
+        cmd: pwd
+      register: pwd
+    - debug: var=pwd.stdout_lines

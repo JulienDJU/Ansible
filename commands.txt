@@ -1,0 +1,45 @@
+
+# build image from Dockerfile
+
+docker build -t ubuntu_ssh Docker
+
+# run image
+
+docker run --name vm1 ubuntu_ssh
+
+# check ssh inside of image
+
+docker exec –it vm1 /bin/bash
+
+# To fin the IP of a docker image
+
+sudo docker inspect -f "{{ .NetworkSettings.IPAddress }}" ubutun_bash2
+
+# add keys
+
+# run ansible
+
+ansible web -i aws.ini -m ping
+
+# Running a playbook
+
+anisble-playbook -i aws.ini playbook.yaml
+
+ansible-playbook -i aws.ini playbooks/playbook.yaml
+
+# Running cmd via Ansible
+
+ansible-playbook -i aws.ini -v playbooks/cmd.yaml
+
+# Using variables stored in a file
+
+ansible-playbook -e "@variables/vars.yaml"  variables/var_file_demo.yaml 
+
+# Passing variables in the CLI
+
+ansible-playbook -e "basic_var=CLI"  variables/cli.yaml
+
+# Create a role
+
+ansible-galaxy init apache
+

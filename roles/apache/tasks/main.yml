@@ -1,0 +1,26 @@
+---
+#tasks file for apache
+- name: Update Package Manager
+  shell:
+    cmd: apt-get update
+- name: Update Package Manager V2
+  apt:
+    name: '*'
+    state: latest
+- name: Install Apache
+  apt:
+    name: apache2
+    state: present
+- name: Create HTML Page
+  shell:
+    cmd: echo "Hello From The Ansible Challenge" > /var/www/html/index.html
+- name: Create HTML Page V2
+  shell: echo "Hello From The Ansible Challenge" > /var/www/html/index.html
+  args:
+    executable: /bin/bash
+  notify: Reload Apache
+- name: Get IP Address
+  shell:
+    cmd: ls -l
+  register: list
+- debug: var=list.stdout_lines

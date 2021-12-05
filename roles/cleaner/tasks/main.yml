@@ -1,0 +1,11 @@
+---
+# tasks file for cleaner
+- name: Uninstall Apache
+  apt:
+    name: httpd
+    state: absent
+- name: Remove index.html
+  file:
+    path: /var/www/html/index.html
+    state: absent
+  

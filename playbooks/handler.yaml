@@ -1,0 +1,29 @@
+- hosts: web
+  remote_user: root
+  become: yes
+  tasks:
+  - name: Install Apache
+    apt:
+      name: apache2
+      state: present
+    notify:
+      - Restart Apache
+  - name: Install Nano
+    apt:
+      name: nano
+      state: present
+    notify:
+      - Restart Apache
+  - name: Remove Apache
+    apt:
+      name: apache2
+      state: absent
+  - name: Remove Nano
+    apt:
+      name: nano
+      state: absent
+  handlers:
+  - name: Restart Apache
+    service:
+      name: httpd
+      state: restarted
