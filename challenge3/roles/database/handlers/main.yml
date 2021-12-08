@@ -1,0 +1,8 @@
+---
+# handlers file for database
+
+- name: Start DB
+  service:
+    - name: "{{ database_name }}"
+    - state: started 
+  

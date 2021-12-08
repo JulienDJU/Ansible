@@ -1,0 +1,3 @@
+---
+# vars file for database
+database_name: "mysql-server"

@@ -43,3 +43,25 @@ ansible-playbook -e "basic_var=CLI"  variables/cli.yaml
 
 ansible-galaxy init apache
 
+# Install roles
+
+ansible-galaxy install --roles-path roles/. -r roles/requirements.yaml 
+
+# Encrypt file with ansible-vault
+
+ansible-vault encrypt aws.yaml
+
+# View file
+
+ansible-vault view aws.yaml
+
+# Get prompted for the password
+
+ansible-playbook -i aws.yaml --ask-vault-pass playbook.yaml 
+
+# Change password
+
+ansible-vault rekey aws.yaml
+
+
+

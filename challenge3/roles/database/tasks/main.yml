@@ -1,0 +1,12 @@
+---
+# tasks file for database
+
+- name: Install database
+  apt:
+    name: "{{ database_name }}"
+    state: present
+  notify:
+    - Start DB
+- name: Display Installed DB
+  debug:
+    msg: "{{ database_name }}"
