@@ -63,5 +63,8 @@ ansible-playbook -i aws.yaml --ask-vault-pass playbook.yaml
 
 ansible-vault rekey aws.yaml
 
+# Decrypt file
+
+ansible-vault decrypt aws.yaml
 
 

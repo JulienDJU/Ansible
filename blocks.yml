@@ -1,0 +1,16 @@
+- hosts: localhost
+  tasks:
+  - name: Error handling
+    block:
+      - name: Going to fail
+        debug:
+          msg: "Running the module"
+      - name: Failing tasks
+        command: /bin/hsab
+      - name: This will never run
+        debug:
+          msg: "Not run"
+    rescue:
+      - name: "Something went wrong"
+        debug:
+          msg: "The error was caught"
